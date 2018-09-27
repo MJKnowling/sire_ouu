@@ -1,0 +1,4 @@
+NOTE:
+The jcb file (comprising the response and Jacobian matrices) here is modified to satisfy github's repo storage allocation; all matrix rows except those corresponding to the four base constraints (see White, Knowling, et al.) were removed.  
+
+Matt Knowling
