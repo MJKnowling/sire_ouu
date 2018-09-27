@@ -1,0 +1,18 @@
+name: py36
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - netcdf4
+  - pyshp
+  - ipyleaflet=0.8.1
+  - pip:
+    - flopy
+    - pyemu
+
+
+prefix: /home/parallels/miniconda/envs/py36
