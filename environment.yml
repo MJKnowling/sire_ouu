@@ -10,9 +10,9 @@ dependencies:
   - netcdf4
   - pyshp
   - ipyleaflet=0.8.1
-  - pip:
-    - flopy
-    - pyemu
+#  - pip:
+#    - flopy
+#    - pyemu
 
 
 prefix: /home/parallels/miniconda/envs/py36
