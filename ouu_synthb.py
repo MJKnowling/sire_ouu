@@ -88,14 +88,19 @@ def run_pestpp_opt(const_dict,risk=0.5,extra_sw_consts=[]):
         const_name = const_name.lower()
         assert const_name in obs.obsnme
         obs.loc[const_name,"obsval"] *= const_percent_change
+    print("writing pcf..")
     pst_scen.write(os.path.join(scen_dir,scen_pst_file))
+    print("..done")
+    print("solving...")
     pyemu.os_utils.run("{0} {1}".format(exe_name,scen_pst_file),cwd=scen_dir)
+    print("..done")
     infeas,phi = scrape_recfile(os.path.join(scen_dir,scen_pst_file.replace(".pst",".rec")))
     
     return infeas,phi
 
 def plot_scenario_dv(infeas=False,extra_sw_consts=[],risk=0.5):
     assert os.path.exists(par_file)
+    print("plotting..")
     m = flopy.modflow.Modflow.load("synthb.nam",model_ws=scen_dir,load_only=['SFR'])
     ib = m.bas6.ibound[0].array
     pst = load_pst()
@@ -154,6 +159,7 @@ def plot_scenario_dv(infeas=False,extra_sw_consts=[],risk=0.5):
     cb.set_label("$\\frac{kg}{m^3}$",fontsize=14)
     #ax.scatter(gw_obs.x,gw_obs.y,marker='*',color='r',s=100,label="gw constraint")
     ax.scatter([sw_x],[sw_y],marker='^',color='r',s=100,label="sw constraint")
+    print("..done")
     return fig,ax
 
 def run_scenario(const_dict={},risk=0.5,extra_sw_consts=[]):#[631]):
