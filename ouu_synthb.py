@@ -92,6 +92,7 @@ def run_pestpp_opt(const_dict,risk=0.5,extra_sw_consts=[]):
     pst_scen.write(os.path.join(scen_dir,scen_pst_file))
     print("..done")
     print("solving...")
+    os.rename(os.path.join(scen_dir,"obj_coeffs.dat"),os.path.join(scen_dir,"OBJ_COEFFS.DAT"))
     pyemu.os_utils.run("{0} {1}".format(exe_name,scen_pst_file),cwd=scen_dir)
     print("..done")
     infeas,phi = scrape_recfile(os.path.join(scen_dir,scen_pst_file.replace(".pst",".rec")))
