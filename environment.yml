@@ -7,9 +7,7 @@ dependencies:
   - scipy
   - matplotlib
   - pandas
-  - netcdf4
-  - pyshp
-  - ipyleaflet=0.8.1
+  - appmode
 #  - pip:
 #    - flopy
 #    - pyemu
